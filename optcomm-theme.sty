@@ -1,0 +1,113 @@
+\ProvidesPackage{theme} % Package declaration
+
+% Load Beamer Theme Basics
+\usepackage{tikz} % For drawing
+\usepackage{graphicx} % For including images
+\usepackage{xcolor} % For colors
+\usepackage{environ}
+
+% Define Colors
+\definecolor{bluetum}{rgb}{0.15, 0.45, .75}
+\definecolor{mygray}{RGB}{200, 200, 200}
+\definecolor{bluegray}{rgb}{0.2, 0.4, 0.6}
+
+% Define Fonts
+\setbeamerfont{frametitle}{size=\large,series=\bfseries}
+
+% Define Custom Colors
+\setbeamercolor{frametitle}{fg=white,bg=bluetum}
+\setbeamercolor{title}{fg=bluetum}
+\setbeamercolor{author}{fg=gray}
+\setbeamercolor{structure}{fg=bluetum}
+
+% Define Background and Frames
+\setbeamertemplate{frametitle}
+{
+    \begin{beamercolorbox}[wd=\paperwidth, ht=.7em, dp=.2cm, rounded=true, left]{frametitle}
+        \usebeamerfont{frametitle} \insertframetitle
+    \end{beamercolorbox}
+}
+
+% Modify Navigation Symbols
+\setbeamertemplate{navigation symbols}{}
+
+% Define Custom Title Page
+\defbeamertemplate*{title page}{custom}[1][]
+{
+    \begin{center}
+        {\usebeamerfont{title} \usebeamercolor[fg]{title} \Large \parbox{\textwidth}{\centering \inserttitle}} \\[1em]
+        \vspace{.5cm}
+        {\usebeamerfont{author} \usebeamercolor[fg]{author} \normalsize \insertauthor} \\[1em]
+        \vspace{.4cm}
+        {\usebeamerfont{institute} \usebeamercolor[fg]{author} \footnotesize \insertinstitute} \\[1em] % Add affiliations
+        \vspace{.4cm}
+        {\usebeamerfont{date} \usebeamercolor[fg]{date} \normalsize \insertdate}
+    \end{center}
+}
+
+%% Set headline
+\setbeamertemplate{headline}{%
+\leavevmode%
+  \hspace{.6cm}\hbox{%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=8ex,dp=0.5ex]{palette}%
+        \insertsectionnavigationhorizontal{\paperwidth}{}{\hskip0pt plus1filll}
+    \end{beamercolorbox}%
+  }
+}
+
+\newcommand{\Hrule}[3][.]{%
+  \par\addvspace{#2}%
+  \begingroup\color{#1}%
+  \hrule
+  \endgroup
+  \addvspace{#3}%
+}
+
+% Set footer
+\setbeamertemplate{footline}{
+    \Hrule[bluetum]{5pt}{0pt}
+    \begin{beamercolorbox}[wd=\textwidth,ht=10mm,dp=3mm]{fuss} % Adjust height and depth as needed
+        \hspace{10mm} 
+        \raisebox{0.4\height}{%
+        % logo1
+        \parbox[c]{2.2cm}{\includegraphics[height=7mm]{images/LOGO_UOA_en.pdf}}
+        % author
+        \hspace{1ex}\parbox[c]{2cm}{\textcolor{bluegray}{\insertshortauthor}} %
+        % title
+        \hspace{1ex}\parbox[c]{2.7cm}{\textcolor{bluegray}{\inserttitle}}
+        % date
+        \hspace{1ex}\parbox[c]{1.3cm}{\textcolor{bluegray}\insertdate}
+        % logo2
+        \parbox[c]{2.2cm}{\includegraphics[height=5mm]{images/eul.jpeg}} 
+        % page number
+        \hspace{2.5ex}\textcolor{bluegray}{\thepage}
+        }
+    \end{beamercolorbox}
+}
+
+% Contents format
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{subsection in toc}[subsections numbered]
+\newenvironment{toc-title}{
+    \setbeamertemplate{frametitle}{
+            \vspace{0.7cm} 
+            \begin{beamercolorbox}[wd=\paperwidth, ht=.7em, dp=.2cm, rounded=true, left]{frametitle}
+            \insertframetitle
+        \end{beamercolorbox}
+    }
+}{ 
+    \setbeamertemplate{headline}{}
+}
+
+% Create titlepage footer 
+% Define custom footer for the title page
+\newcommand{\titlepagefooter}{%
+    \begin{beamercolorbox}[wd=\textwidth,ht=1cm,dp=0cm,center]{footline}
+        \raisebox{0.4\height}{%
+        % logos
+        \parbox[c]{2.5cm}{\includegraphics[height=8.5mm]{images/LOGO_UOA_en.pdf}}
+        \hspace{2ex}
+        \parbox[c]{2.5cm}{\includegraphics[height=6.5mm]{images/eul.jpeg}}
+        }
+    \end{beamercolorbox}
+}
