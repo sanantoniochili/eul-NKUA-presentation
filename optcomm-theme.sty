@@ -66,8 +66,9 @@
 
 % Set footer
 \setbeamertemplate{footline}{
-    \Hrule[bluetum]{5pt}{0pt}
     \begin{beamercolorbox}[wd=\textwidth,ht=10mm,dp=3mm]{fuss} % Adjust height and depth as needed
+        \vskip 1ex 
+        \Hrule[bluetum]{5pt}{0pt}
         \hspace{10mm} 
         \raisebox{0.4\height}{%
         % logo1
@@ -75,7 +76,7 @@
         % author
         \hspace{1ex}\parbox[c]{2cm}{\textcolor{bluegray}{\insertshortauthor}} %
         % title
-        \hspace{1ex}\parbox[c]{2.7cm}{\textcolor{bluegray}{\inserttitle}}
+        \hspace{1ex}\parbox[c]{2.7cm}{\vskip 1ex \textcolor{bluegray}{{\tiny \inserttitle}}}
         % date
         \hspace{1ex}\parbox[c]{1.3cm}{\textcolor{bluegray}\insertdate}
         % logo2
