@@ -2,7 +2,7 @@
 
 % Load Beamer Theme Basics
 \usepackage{tikz} % For drawing
-\usepackage{graphicx} % For including images
+\usepackage{graphicx} % For including logos
 \usepackage{xcolor} % For colors
 \usepackage{environ}
 
@@ -67,22 +67,23 @@
 % Set footer
 \setbeamertemplate{footline}{
     \begin{beamercolorbox}[wd=\textwidth,ht=10mm,dp=3mm]{fuss} % Adjust height and depth as needed
-        \vskip 1ex 
         \Hrule[bluetum]{5pt}{0pt}
         \hspace{10mm} 
+        \raisebox{0.2\height}{%
+            % logo1
+            \parbox[c]{2.2cm}{\includegraphics[height=7mm]{logos/LOGO_UOA_en.pdf}}
+        }
         \raisebox{0.4\height}{%
-        % logo1
-        \parbox[c]{2.2cm}{\includegraphics[height=7mm]{logos/LOGO_UOA_en.pdf}}
-        % author
-        \hspace{1ex}\parbox[c]{2cm}{\textcolor{bluegray}{\insertshortauthor}} %
-        % title
-        \hspace{1ex}\parbox[c]{2.7cm}{\vskip 1ex \textcolor{bluegray}{{\tiny \inserttitle}}}
-        % date
-        \hspace{1ex}\parbox[c]{1.3cm}{\textcolor{bluegray}\insertdate}
-        % logo2
-        \parbox[c]{2.2cm}{\includegraphics[height=5mm]{logos/eul.jpeg}} 
-        % page number
-        \hspace{2.5ex}\textcolor{bluegray}{\thepage}
+            % author
+            \hspace{1ex}\parbox[c]{2cm}{\textcolor{bluegray}{\insertshortauthor}} %
+            % title
+            \hspace{1ex}\parbox[c]{2.7cm}{\vskip 1ex \textcolor{bluegray}{{\tiny \inserttitle}}}
+            % date
+            \hspace{1ex}\parbox[c]{1.3cm}{\textcolor{bluegray}\insertdate}
+            % logo2
+            \parbox[c]{2.2cm}{\includegraphics[height=5mm]{logos/eul.jpeg}} 
+            % page number
+            \hspace{2.5ex}\textcolor{bluegray}{\thepage}
         }
     \end{beamercolorbox}
 }
